@@ -12,23 +12,47 @@
     <LinearLayout
         android:orientation="vertical"
         android:padding="16dp"
-        android:layout_marginTop="100dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/etNumber"
-            android:hint="0"
-            android:textColorHint="@color/black"
-            android:inputType="number"
-            android:textColor="@color/black"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:textSize="20sp"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:padding="5dp"
+            android:background="@drawable/edittext_bg_add_overtime"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Add Overtime"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                />
+            <EditText
+                android:id="@+id/etNumber"
+                android:hint="0"
+                android:textColorHint="@color/black"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:textSize="20sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,17 +60,14 @@
             android:orientation="horizontal"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="15dp"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
             >
+
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:outlineSpotShadowColor="@color/black"
-                android:layout_height="wrap_content"/>
+                />
 
             <TextView
                 android:id="@+id/tvDate"
@@ -55,12 +76,18 @@
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:gravity="center"
-                android:padding="6dp"
+                android:padding="2dp"
                 android:text="Date Set"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
+
+
+
+
+
+
 
 
         <Button
@@ -71,7 +98,7 @@
             android:textStyle="bold"
             android:textSize="20sp"
             android:layout_marginTop="20dp"
-            android:backgroundTint="#DC3DAA"
+            android:backgroundTint="@color/rootColour"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>

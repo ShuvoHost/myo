@@ -114,7 +114,7 @@ public class AddDataActivity extends AppCompatActivity {
             String date = tvdate.getText().toString().trim();//new
 
             if (number.isEmpty()) {
-                etNumber.setError("Enter number");
+                etNumber.setError("Enter Overtime");
                 return;
             }
 
@@ -132,10 +132,11 @@ public class AddDataActivity extends AppCompatActivity {
 
     }
 
+    @SuppressLint("SetTextI18n")
     private void spinnerMethod() {
 
         // Spinner data
-        String[] items = {"Type1 ", "Type2", "Type3" ,"Type4", "Type5"};
+        String[] items = {"Regular ", "Day Shift", "Night Shift" ,"OFF Day", "Leave", "Absent"};
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 spinner.getContext(),

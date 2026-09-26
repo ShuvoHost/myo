@@ -13,6 +13,9 @@ public class DataEntity {
     public String spinnerText;
     public String date;
 
+    //empty constructor
+    public DataEntity() {
+    }
 
     public DataEntity(int id, String numberText, String spinnerText, String date) {
         this.id = id;

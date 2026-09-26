@@ -103,6 +103,7 @@ public class ListActivity extends AppCompatActivity {
         tvMonth.setText(sdf.format(currentCalendar.getTime()));
     }
 }
+
 /*    private void loadMonthData() {
 
         int month = currentCalendar.get(Calendar.MONTH) + 1;
