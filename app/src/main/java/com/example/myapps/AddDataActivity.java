@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +28,7 @@ public class AddDataActivity extends AppCompatActivity {
 
     DataViewModel viewModel;
     private EditText etNumber;
+    private LinearLayout otLinearLayout;
     private Spinner spinner;
     private Button btnSave;
     private int updateId = -1;
@@ -104,6 +106,7 @@ public class AddDataActivity extends AppCompatActivity {
         spinner = findViewById(R.id.spinner);
         btnSave = findViewById(R.id.btnSave);
         tvdate = findViewById(R.id.tvDate);
+        otLinearLayout = findViewById(R.id.otll);
     }
 
     private void saveDataMethod() {

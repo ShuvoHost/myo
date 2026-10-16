@@ -44,7 +44,7 @@ public class ListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Adapter first
-        adapter = new DataAdapter(this, new ArrayList<>());
+        adapter = new DataAdapter(ListActivity.this, new ArrayList<>());
         recyclerView.setAdapter(adapter);
 
 
@@ -52,7 +52,8 @@ public class ListActivity extends AppCompatActivity {
         currentCalendar = Calendar.getInstance();
 
         // ViewModel
-        viewModel = new ViewModelProvider(this).get(DataViewModel.class);
+
+        viewModel = new ViewModelProvider(ListActivity.this).get(DataViewModel.class);
 
         // First load
         updateMonthUI();
@@ -73,18 +74,30 @@ public class ListActivity extends AppCompatActivity {
         });
 
         viewModel.getMonthData().observe(this, dataList -> {
+
             adapter.setData(dataList);
 
             int total = 0;
-            for (DataEntity d : dataList) {
+          /*  for (DataEntity d : dataList) {
                 try {
                     total += Integer.parseInt(d.getNumberText());
                 } catch (Exception ignored) {}
+            }*/
+
+            if (dataList != null) {
+                for (DataEntity d : dataList) {
+                    try {
+                        total += Integer.parseInt(d.getNumberText());
+                    } catch (Exception ignored) {
+                    }
+                }
             }
             totalOt.setText("Total : " + total);
         });
 
     }
+
+
 
     // Month load
     private void loadMonthData() {
@@ -103,6 +116,9 @@ public class ListActivity extends AppCompatActivity {
         tvMonth.setText(sdf.format(currentCalendar.getTime()));
     }
 }
+
+
+
 
 /*    private void loadMonthData() {
 
