@@ -21,7 +21,7 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    private LinearLayout iconAdd,history,jobyear;
+    private LinearLayout iconAdd,history,jobyear,calculator_icon;
     private TextView overtimeTV;
     DataViewModel dataViewModel;
     private Calendar currentCalendar;
@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         history = findViewById(R.id.history_icon);
         overtimeTV = findViewById(R.id.otMain);
         jobyear = findViewById(R.id.JobYear_icon);
+        calculator_icon = findViewById(R.id.calculator_icon);
 
 
         // Calendar
@@ -100,6 +101,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 MainActivity.this.startActivity(new Intent(MainActivity.this, AgeCalculator.class));
+
+
+            }
+        });
+
+        calculator_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.this.startActivity(new Intent(MainActivity.this, SalaryCalculator.class));
 
 
             }

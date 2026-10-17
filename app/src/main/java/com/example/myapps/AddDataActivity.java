@@ -1,8 +1,6 @@
 package com.example.myapps;
-
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -12,14 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -28,9 +20,10 @@ public class AddDataActivity extends AppCompatActivity {
 
     DataViewModel viewModel;
     private EditText etNumber;
-    private LinearLayout otLinearLayout;
+
     private Spinner spinner;
     private Button btnSave;
+    private LinearLayout otlinearLayout;
     private int updateId = -1;
     String updateSpinnerValue = "";
     private TextView tvdate;
@@ -62,6 +55,8 @@ public class AddDataActivity extends AppCompatActivity {
 
 
 
+
+
     }
 
     private void defoltTodaDate() {
@@ -88,11 +83,11 @@ public class AddDataActivity extends AppCompatActivity {
                         selectedCal.set(y, m, d);
 
                         // Format date properly
-                       SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-                       selectedDate = sdf.format(selectedCal.getTime());
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                        selectedDate = sdf.format(selectedCal.getTime());
 
-                       // @SuppressLint("DefaultLocale") String date = String.format("%04d-%02d-%02d", y, m + 1, d);
-                       // etDate.setText(date);
+                        // @SuppressLint("DefaultLocale") String date = String.format("%04d-%02d-%02d", y, m + 1, d);
+                        // etDate.setText(date);
                         tvdate.setText(selectedDate);
                     },
                     year, month, day
@@ -106,7 +101,7 @@ public class AddDataActivity extends AppCompatActivity {
         spinner = findViewById(R.id.spinner);
         btnSave = findViewById(R.id.btnSave);
         tvdate = findViewById(R.id.tvDate);
-        otLinearLayout = findViewById(R.id.otll);
+        otlinearLayout = findViewById(R.id.otll);
     }
 
     private void saveDataMethod() {
@@ -146,10 +141,15 @@ public class AddDataActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_dropdown_item,
                 items
         );
+
+
+
         adapter.setDropDownViewResource(
                 android.R.layout.simple_spinner_dropdown_item
         );
+
         spinner.setAdapter(adapter);
+
 
         // 👉 Update mode check
         if (getIntent().hasExtra("id")) {
@@ -167,11 +167,13 @@ public class AddDataActivity extends AppCompatActivity {
             for (int i = 0; i < items.length; i++) {
                 if (items[i].equals(updateSpinnerValue)) {
                     spinner.setSelection(i);
-                    break;
+
+                   break;
+
+
                 }
             }
         }
 
     }
 }
-

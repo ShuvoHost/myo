@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="15dp"
+    >
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salary Breakdown"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#000000" />
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginVertical="12dp"
+        android:background="#DDDDDD"/>
+
+    <!-- Total Salary -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Total Salary :"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/tvTotalSalary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="25sp"
+            android:maxLength="9"
+            android:textStyle="bold"
+            android:textColor="#45BD4A" />
+    </LinearLayout>
+
+
+    <!-- Basic Salary -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Basic Salary :"
+            android:textSize="20sp"
+            android:textColor="#333333"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvBasicSalary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:maxLength="9"
+            android:textColor="#333333"
+            android:layout_marginBottom="8dp"/>
+
+    </LinearLayout>
+
+
+    <!-- Overtime Rate -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Overtime Rate :"
+            android:textSize="20sp"
+            android:textColor="#333333"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/tvOvertimeRate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:maxLength="9"
+            android:textColor="#333333"
+            android:layout_marginBottom="16dp"/>
+
+    </LinearLayout>
+
+
+    <!-- Overtime Taka -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Overtime Taka :"
+            android:textSize="20sp"
+            android:textColor="#333333"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/tvOvertimeTaka"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            android:maxLength="9"
+            android:textColor="#333333"
+            android:layout_marginBottom="16dp"/>
+
+    </LinearLayout>
+
+
+
+
+
+    <!-- Atendance Bonus -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Atendance Bonus :"
+            android:textSize="20sp"
+            android:textColor="#333333"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvAtendanceBonus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:maxLength="9"
+            android:textColor="#333333"
+            android:layout_marginBottom="8dp"/>
+    </LinearLayout>
+
+
+
+    <!-- Absent Cost -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Absent Cost :"
+            android:textSize="20sp"
+            android:textColor="#333333"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/absentCost"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:maxLength="9"
+            android:textColor="#E91E63"
+            android:layout_marginBottom="8dp"/>
+    </LinearLayout>
+
+    <!-- Transport -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Transport :"
+            android:textSize="20sp"
+            android:textColor="#333333"
+            android:layout_marginBottom="16dp"/>
+        <TextView
+            android:id="@+id/tvTransport"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:maxLength="9"
+            android:textColor="#333333"
+            android:layout_marginBottom="16dp"/>
+    </LinearLayout>
+
+    <!-- Tiffin Bill -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Tiffin Bill :"
+            android:textSize="20sp"
+            android:textColor="#333333"
+            android:layout_marginBottom="16dp"/>
+        <TextView
+            android:id="@+id/tvTiffinBill"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:maxLength="9"
+            android:textColor="#333333"
+            android:layout_marginBottom="16dp"/>
+    </LinearLayout>
+
+    <!-- Night Bill -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Night Bill :"
+            android:textSize="20sp"
+            android:textColor="#333333"
+            android:layout_marginBottom="16dp"/>
+        <TextView
+            android:id="@+id/tvNightBill"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:maxLength="9"
+            android:textColor="#333333"
+            android:layout_marginBottom="16dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Others :"
+            android:textSize="20sp"
+            android:textColor="#333333"
+            android:layout_marginBottom="16dp"/>
+
+
+        <TextView
+            android:id="@+id/tvOthers"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:textColor="#333333"
+            android:maxLength="9"
+            android:layout_marginBottom="16dp"/>
+
+    </LinearLayout>
+
+
+
+
+    <!-- OK Button -->
+    <Button
+        android:id="@+id/btnOk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/rootColour"/>
+</LinearLayout>
