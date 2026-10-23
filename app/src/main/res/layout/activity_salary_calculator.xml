@@ -29,366 +29,392 @@
         <!-- Button -->
         <Button
             android:id="@+id/btnCalculate"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Calculate"
-            android:layout_gravity="right"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
-            android:layout_margin="10dp"
-            android:backgroundTint="#009688"
+            android:backgroundTint="#ABC9C7"
             android:padding="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
             android:textSize="20sp"/>
+
 
     </LinearLayout>
 
-    <ScrollView
-        android:id="@+id/scrolId"
+
+    <LinearLayout
+        android:id="@+id/scLL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:layout_below="@+id/titlell">
-
-        <LinearLayout
+        android:orientation="vertical"
+        android:layout_below="@+id/titlell"
+        >
+        <ScrollView
+            android:id="@+id/scrolId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginBottom="15dp"
+            android:scrollbars="vertical"
+           >
 
-            <!-- ================= ROW 1 ================= -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <!-- Total Salary -->
+                <!-- ================= ROW 1 ================= -->
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_card"
-                    android:orientation="vertical"
-                    android:padding="12dp">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Total Salary"
-                        android:textAlignment="center"
-                        android:textColor="#555555"
-                        android:textSize="12sp" />
+                    <!-- Total Salary -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card"
+                        android:orientation="vertical"
+                        android:padding="12dp">
 
-                    <EditText
-                        android:id="@+id/etTotalSalary"
-                        android:layout_width="match_parent"
-                        android:layout_height="42dp"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/bg_input"
-                        android:gravity="center"
-                        android:hint="0"
-                        android:inputType="number" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Total Salary"
+                            android:textAlignment="center"
+                            android:textColor="#555555"
+                            android:textSize="12sp" />
+
+                        <EditText
+                            android:id="@+id/etTotalSalary"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/bg_input"
+                            android:gravity="center"
+                            android:hint="0"
+                            android:inputType="number" />
+                    </LinearLayout>
+
+                    <!-- Basic Salary -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Attendance Bonus"
+                            android:textAlignment="center"
+                            android:textColor="#555555"
+                            android:textSize="12sp" />
+
+                        <EditText
+                            android:id="@+id/etAttendanceBonus"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/bg_input"
+                            android:gravity="center"
+                            android:hint="0"
+                            android:inputType="number" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
-                <!-- Basic Salary -->
+                <!-- ================= ROW 2 ================= -->
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_card"
-                    android:orientation="vertical"
-                    android:padding="12dp">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Attendance Bonus"
-                        android:textAlignment="center"
-                        android:textColor="#555555"
-                        android:textSize="12sp" />
+                    <!-- House Rent -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card"
+                        android:orientation="vertical"
+                        android:padding="12dp">
 
-                    <EditText
-                        android:id="@+id/etAttendanceBonus"
-                        android:layout_width="match_parent"
-                        android:layout_height="42dp"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/bg_input"
-                        android:gravity="center"
-                        android:hint="0"
-                        android:inputType="number" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="O.T Hour"
+                            android:textAlignment="center"
+                            android:textColor="#555555"
+                            android:textSize="12sp" />
+
+                        <EditText
+                            android:id="@+id/etHour"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/bg_input"
+                            android:gravity="center"
+                            android:hint="0"
+                            android:inputType="number" />
+                    </LinearLayout>
+
+                    <!-- Medical -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Absent Day"
+                            android:textAlignment="center"
+                            android:textColor="#555555"
+                            android:textSize="12sp" />
+
+                        <EditText
+                            android:id="@+id/etAbsent"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/bg_input"
+                            android:gravity="center"
+                            android:hint="0"
+                            android:inputType="number" />
+                    </LinearLayout>
+
                 </LinearLayout>
+
+                <!-- ================= ROW 3 ================= -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Transport -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Transport"
+                            android:textAlignment="center"
+                            android:textColor="#555555"
+                            android:textSize="12sp" />
+
+                        <EditText
+                            android:id="@+id/etTransport"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/bg_input"
+                            android:gravity="center"
+                            android:hint="0"
+                            android:inputType="number" />
+                    </LinearLayout>
+
+                    <!-- Others -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Others"
+                            android:textAlignment="center"
+                            android:textColor="#555555"
+                            android:textSize="12sp" />
+
+                        <EditText
+                            android:id="@+id/etOthers"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/bg_input"
+                            android:gravity="center"
+                            android:hint="0"
+                            android:inputType="number" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- ================= ROW 4 ================= -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Tiffin Day -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Tiffin Day"
+                            android:textAlignment="center"
+                            android:textColor="#555555"
+                            android:textSize="12sp" />
+
+                        <EditText
+                            android:id="@+id/etTiffinDay"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/bg_input"
+                            android:gravity="center"
+                            android:hint="0"
+                            android:inputType="number" />
+                    </LinearLayout>
+
+                    <!-- Tiffin per Day Taka -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Tiffin Taka"
+                            android:textAlignment="center"
+                            android:textColor="#555555"
+                            android:textSize="12sp" />
+
+                        <EditText
+                            android:id="@+id/etTiffinTaka"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/bg_input"
+                            android:gravity="center"
+                            android:hint="0"
+                            android:inputType="number" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <!-- ================= ROW 5 ================= -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Night Day -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Night Day"
+                            android:textAlignment="center"
+                            android:textColor="#555555"
+                            android:textSize="12sp" />
+
+                        <EditText
+                            android:id="@+id/etNightDay"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/bg_input"
+                            android:gravity="center"
+                            android:hint="0"
+                            android:inputType="number" />
+                    </LinearLayout>
+
+                    <!-- Night Bil per Day Taka -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Night Bill Taka"
+                            android:textAlignment="center"
+                            android:textColor="#555555"
+                            android:textSize="12sp" />
+
+                        <EditText
+                            android:id="@+id/etNightTaka"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/bg_input"
+                            android:gravity="center"
+                            android:hint="0"
+                            android:inputType="number" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
 
             </LinearLayout>
-
-            <!-- ================= ROW 2 ================= -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <!-- House Rent -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_card"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="O.T Hour"
-                        android:textAlignment="center"
-                        android:textColor="#555555"
-                        android:textSize="12sp" />
-
-                    <EditText
-                        android:id="@+id/etHour"
-                        android:layout_width="match_parent"
-                        android:layout_height="42dp"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/bg_input"
-                        android:gravity="center"
-                        android:hint="0"
-                        android:inputType="number" />
-                </LinearLayout>
-
-                <!-- Medical -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_card"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Absent Day"
-                        android:textAlignment="center"
-                        android:textColor="#555555"
-                        android:textSize="12sp" />
-
-                    <EditText
-                        android:id="@+id/etAbsent"
-                        android:layout_width="match_parent"
-                        android:layout_height="42dp"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/bg_input"
-                        android:gravity="center"
-                        android:hint="0"
-                        android:inputType="number" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <!-- ================= ROW 3 ================= -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <!-- Transport -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_card"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Transport"
-                        android:textAlignment="center"
-                        android:textColor="#555555"
-                        android:textSize="12sp" />
-
-                    <EditText
-                        android:id="@+id/etTransport"
-                        android:layout_width="match_parent"
-                        android:layout_height="42dp"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/bg_input"
-                        android:gravity="center"
-                        android:hint="0"
-                        android:inputType="number" />
-                </LinearLayout>
-
-                <!-- Others -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_card"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Others"
-                        android:textAlignment="center"
-                        android:textColor="#555555"
-                        android:textSize="12sp" />
-
-                    <EditText
-                        android:id="@+id/etOthers"
-                        android:layout_width="match_parent"
-                        android:layout_height="42dp"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/bg_input"
-                        android:gravity="center"
-                        android:hint="0"
-                        android:inputType="number" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <!-- ================= ROW 4 ================= -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <!-- Tiffin Day -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_card"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Tiffin Day"
-                        android:textAlignment="center"
-                        android:textColor="#555555"
-                        android:textSize="12sp" />
-
-                    <EditText
-                        android:id="@+id/etTiffinDay"
-                        android:layout_width="match_parent"
-                        android:layout_height="42dp"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/bg_input"
-                        android:gravity="center"
-                        android:hint="0"
-                        android:inputType="number" />
-                </LinearLayout>
-
-                <!-- Tiffin per Day Taka -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_card"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Tiffin Taka"
-                        android:textAlignment="center"
-                        android:textColor="#555555"
-                        android:textSize="12sp" />
-
-                    <EditText
-                        android:id="@+id/etTiffinTaka"
-                        android:layout_width="match_parent"
-                        android:layout_height="42dp"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/bg_input"
-                        android:gravity="center"
-                        android:hint="0"
-                        android:inputType="number" />
-                </LinearLayout>
-
-            </LinearLayout>
+        </ScrollView>
 
 
-            <!-- ================= ROW 5 ================= -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <!-- Night Day -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_card"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Night Day"
-                        android:textAlignment="center"
-                        android:textColor="#555555"
-                        android:textSize="12sp" />
-
-                    <EditText
-                        android:id="@+id/etNightDay"
-                        android:layout_width="match_parent"
-                        android:layout_height="42dp"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/bg_input"
-                        android:gravity="center"
-                        android:hint="0"
-                        android:inputType="number" />
-                </LinearLayout>
-
-                <!-- Night Bil per Day Taka -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_card"
-                    android:orientation="vertical"
-                    android:padding="12dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Night Bill Taka"
-                        android:textAlignment="center"
-                        android:textColor="#555555"
-                        android:textSize="12sp" />
-
-                    <EditText
-                        android:id="@+id/etNightTaka"
-                        android:layout_width="match_parent"
-                        android:layout_height="42dp"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/bg_input"
-                        android:gravity="center"
-                        android:hint="0"
-                        android:inputType="number" />
-                </LinearLayout>
-
-            </LinearLayout>
+    </LinearLayout>
 
 
-        </LinearLayout>
-    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:layout_margin="0dp"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/scLL"
+        android:padding="5dp"
+        >
+
+    </LinearLayout>
 
 
 

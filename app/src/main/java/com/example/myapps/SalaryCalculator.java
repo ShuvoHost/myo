@@ -1,8 +1,10 @@
 package com.example.myapps;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -10,12 +12,15 @@ import androidx.core.view.WindowInsetsCompat;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class SalaryCalculator extends AppCompatActivity{
 
@@ -101,7 +106,232 @@ public class SalaryCalculator extends AppCompatActivity{
     }
 
     // ===================== CALCULATION =====================
+
     private void calculateSalary() {
+
+        // 1. Required inputs
+        Double salaryValue = readNumber(
+                etTotalSalary, true, "Enter total salary"
+        );
+
+        Double otHourValue = readNumber(
+                etHour, true, "Enter OT hour"
+        );
+
+        if (salaryValue == null || otHourValue == null) {
+            return;
+        }
+
+        // 2. Tiffin and Night validation
+        if (!validateTiffin() || !validateNight()) {
+            return;
+        }
+
+        // 3. Optional inputs: empty হলে 0
+        Double attendanceValue = readNumber(
+                etAttendanceBonus, false, ""
+        );
+
+        Double transportValue = readNumber(
+                etTransport, false, ""
+        );
+
+        Double othersValue = readNumber(
+                etOters, false, ""
+        );
+
+        Double absentValue = readNumber(
+                etAbsentDay, false, ""
+        );
+
+        Double tiffinDayValue = readNumber(
+                etTiffinDay, false, ""
+        );
+
+        Double tiffinTakaValue = readNumber(
+                etTiffinTaka, false, ""
+        );
+
+        Double nightDayValue = readNumber(
+                etNightDay, false, ""
+        );
+
+        Double nightTakaValue = readNumber(
+                etNightTaka, false, ""
+        );
+
+        // Invalid number হলে calculation বন্ধ
+        if (attendanceValue == null ||
+                transportValue == null ||
+                othersValue == null ||
+                absentValue == null ||
+                tiffinDayValue == null ||
+                tiffinTakaValue == null ||
+                nightDayValue == null ||
+                nightTakaValue == null) {
+            return;
+        }
+
+        // 4. Values
+        double totalSalary = salaryValue;
+        double otHour = otHourValue;
+        double attendance = attendanceValue;
+        double transportInput = transportValue;
+        double others = othersValue;
+        double absent = absentValue;
+
+        double tiffinDay = tiffinDayValue;
+        double tiffinTaka = tiffinTakaValue;
+
+        double nightDay = nightDayValue;
+        double nightTaka = nightTakaValue;
+
+        // 5. Salary calculation
+        double basicWithoutHouse =
+                totalSalary - health - transportFixed - food;
+
+        double finalBasic =
+                basicWithoutHouse / bariVaraPercent;
+
+        double absentFormula = finalBasic / 30;
+
+        double absentFinalCost =
+                absent * absentFormula;
+
+        double overtimeRate = (finalBasic / 208) * 2;
+
+        double otAmount = otHour * overtimeRate;
+
+        // 6. Tiffin and Night bill
+        double tiffinBillFormula =
+                tiffinDay * tiffinTaka;
+
+        double nightBillFormula =
+                nightDay * nightTaka;
+
+        // 7. Final salary
+        double totalSalaryAll =
+                otAmount
+                        + attendance
+                        + transportInput
+                        + others
+                        + totalSalary;
+
+        double totalSalaryWithAbsentCost =
+                totalSalaryAll - absentFinalCost;
+
+        // 8. Send results
+        salaryCalculator(
+                totalSalaryWithAbsentCost,
+                otAmount,
+                attendance,
+                transportInput,
+                others,
+                finalBasic,
+                overtimeRate,
+                absentFinalCost,
+                tiffinBillFormula,
+                nightBillFormula
+        );
+    }
+        private Double readNumber(
+                EditText editText,
+        boolean required,
+        String errorMessage) {
+
+            String value = editText.getText()
+                    .toString()
+                    .trim();
+
+            if (value.isEmpty()) {
+
+                if (required) {
+                    editText.setError(errorMessage);
+                    return null;
+                }
+
+                return 0.0;
+            }
+
+            try {
+                double number = Double.parseDouble(value);
+
+                if (!Double.isFinite(number)) {
+                    editText.setError("Enter a valid number");
+                    return null;
+                }
+
+                editText.setError(null);
+                return number;
+
+            } catch (NumberFormatException e) {
+                editText.setError("Enter a valid number");
+                return null;
+            }
+        }
+
+        private boolean validateNight() {
+
+            String day = etNightDay.getText()
+                    .toString().trim();
+
+            String taka = etNightTaka.getText()
+                    .toString().trim();
+
+            etNightDay.setError(null);
+            etNightTaka.setError(null);
+
+            // দুটোই খালি হলে Night বাদ
+            if (day.isEmpty() && taka.isEmpty()) {
+                return true;
+            }
+
+            if (day.isEmpty()) {
+                etNightDay.setError("Enter Night Day");
+                return false;
+            }
+
+            if (taka.isEmpty()) {
+                etNightTaka.setError("Enter Night Bill Taka");
+                return false;
+            }
+
+            return true;
+        }
+
+        private boolean validateTiffin() {
+
+            String day = etTiffinDay.getText()
+                    .toString().trim();
+
+            String taka = etTiffinTaka.getText()
+                    .toString().trim();
+
+            etTiffinDay.setError(null);
+            etTiffinTaka.setError(null);
+
+            // দুটোই খালি হলে Tiffin বাদ
+            if (day.isEmpty() && taka.isEmpty()) {
+                return true;
+            }
+
+            // একটি দিলে অন্যটিও দিতে হবে
+            if (day.isEmpty()) {
+                etTiffinDay.setError("Enter Tiffin Day");
+                return false;
+            }
+
+            if (taka.isEmpty()) {
+                etTiffinTaka.setError("Enter Tiffin Taka");
+                return false;
+            }
+
+            return true;
+        }
+
+
+    // Ager Code
+/*    private void calculateSalary() {
 
         String stSalaryStr = etTotalSalary.getText().toString().trim();
         String stOtHourStr = etHour.getText().toString().trim();
@@ -123,18 +353,24 @@ public class SalaryCalculator extends AppCompatActivity{
             etHour.setError("Enter OT hour");
             return;
         }
-        if (stAttendanceBns.isEmpty()) {
-            etAttendanceBonus.setError("Enter attendance bonus");
-            return;
-        }
-        if (stTransport.isEmpty()) {
-            etTransport.setError("Enter transport");
-            return;
-        }
-        if (stOthers.isEmpty()) {
-            etOters.setError("Enter others");
-            return;
-        }
+
+
+            boolean tiffinValid = validateTiffin();
+            boolean nightValid = validateNight();
+
+            if (!tiffinValid || !nightValid) {
+                return;
+            }
+
+            // এখানে তোমার ডাটাবেজে সেভ করার কোড বসবে
+            // Tiffin এবং Night দুটোই বাদ দেওয়া থাকলেও
+            // অন্য ইনপুটের তথ্য সেভ করা যাবে।
+
+
+
+
+
+
 
         double totalSalary = Double.parseDouble(stSalaryStr);
         double otHour = Double.parseDouble(stOtHourStr);
@@ -178,4 +414,56 @@ public class SalaryCalculator extends AppCompatActivity{
                 nightBillFormula
         );
     }
+
+
+    private boolean validateNight() {
+
+        String day = etNightDay.getText().toString().trim();
+        String taka = etNightTaka.getText().toString().trim();
+
+        // দুটোই খালি থাকলে Night বাদ
+        if (day.isEmpty() && taka.isEmpty()) {
+            return true;
+        }
+
+        if (day.isEmpty() || taka.isEmpty()) {
+            etNightDay.setError(
+                    day.isEmpty() ? "Night Day দিন" : null
+            );
+
+            etNightTaka.setError(
+                    taka.isEmpty() ? "Night Bill Taka দিন" : null
+            );
+
+            return false;
+        }
+
+        return true;
+    }
+
+    private boolean validateTiffin() {
+
+        String day = etTiffinDay.getText().toString().trim();
+        String taka = etTiffinTaka.getText().toString().trim();
+
+        // দুটোই খালি থাকলে Tiffin বাদ
+        if (day.isEmpty() && taka.isEmpty()) {
+            return true;
+        }
+
+        // একটি পূরণ করা হয়েছে, অন্যটি খালি
+        if (day.isEmpty() || taka.isEmpty()) {
+            etTiffinDay.setError(
+                    day.isEmpty() ? "Tiffin Day দিন" : null
+            );
+
+            etTiffinTaka.setError(
+                    taka.isEmpty() ? "Tiffin Taka দিন" : null
+            );
+
+            return false;
+        }
+
+        return true;
+    }*/
 }
